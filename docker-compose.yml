@@ -1,0 +1,22 @@
+version: '3'
+services:
+  rest-mysql:
+    restart: always
+    container_name: rest-mysql
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: bullshit
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+      - /Users/secret_vlad/Project/mysql_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  rest-app:
+    restart: on-failure
+    container_name: rest-app
+    build: .
+    ports:
+      - 10222:10222
+    depends_on:
+      - rest-mysql
