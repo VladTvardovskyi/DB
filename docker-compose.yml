@@ -10,7 +10,7 @@ services:
       - ./mysql:/docker-entrypoint-initdb.d
       - /Users/secret_vlad/Project/mysql_data:/var/lib/mysql
     ports:
-      - 3306:3306
+      - 6033:6033
 
   rest-app:
     restart: on-failure
