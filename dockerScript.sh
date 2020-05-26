@@ -5,4 +5,4 @@ cd DB
 docker volume create docker_database
 docker-compose up -d
 
-docker logs -f rest-app
+
